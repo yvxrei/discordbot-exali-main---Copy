@@ -1,6 +1,8 @@
 const Discord = require("discord.js")
 require("dotenv").config()
 
+const memberCounter = require('./counters/member-counter')
+
 const generateImage = require ("./generateImage")
 
     const client = new Discord.Client({
@@ -18,6 +20,7 @@ const generateImage = require ("./generateImage")
 
     client.on("ready", () => {
         console.log(`Logged in as ${client.user.tag}`)
+        memberCounter(client)
     })
 
     client.on("messageCreate", (message) => {
